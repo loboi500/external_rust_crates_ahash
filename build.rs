@@ -1,32 +1,3 @@
-#![deny(warnings)]
-
-use std::env;
-
-fn main() {
-    println!("cargo:rerun-if-changed=build.rs");
-    if let Some(channel) = version_check::Channel::read() {
-        if channel.supports_features() {
-            println!("cargo:rustc-cfg=feature=\"specialize\"");
-        }
-    }
-    let os = env::var("CARGO_CFG_TARGET_OS").expect("CARGO_CFG_TARGET_OS was not set");
-    if  os.eq_ignore_ascii_case("linux") ||
-        os.eq_ignore_ascii_case("android") ||
-        os.eq_ignore_ascii_case("windows") ||
-        os.eq_ignore_ascii_case("macos") ||
-        os.eq_ignore_ascii_case("ios") ||
-        os.eq_ignore_ascii_case("freebsd") ||
-        os.eq_ignore_ascii_case("openbsd") ||
-        os.eq_ignore_ascii_case("dragonfly") ||
-        os.eq_ignore_ascii_case("solaris") ||
-        os.eq_ignore_ascii_case("illumos") ||
-        os.eq_ignore_ascii_case("fuchsia") ||
-        os.eq_ignore_ascii_case("redox") ||
-        os.eq_ignore_ascii_case("cloudabi") ||
-        os.eq_ignore_ascii_case("haiku") ||
-        os.eq_ignore_ascii_case("vxworks") ||
-        os.eq_ignore_ascii_case("emscripten") ||
-        os.eq_ignore_ascii_case("wasi") {
-            println!("cargo:rustc-cfg=feature=\"runtime-rng\"");
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7adb46a761ec14b61ff782ed5b6bd1bd840707c1cc8dc8616164db02f4b80e23
+size 1209
